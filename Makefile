@@ -99,6 +99,9 @@ plan: check-workspace ## Show terraform plan for the current workspace.
 login:
 	@terraform login
 
+destroy: ## destroy terraform infrastructure
+	@terraform destroy
+
 generate-token-file:
 	scripts/create_token_file.sh
 
