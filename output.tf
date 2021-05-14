@@ -4,6 +4,11 @@ output "sqs_queue_arn" {
   value       = aws_sqs_queue.sqs_queue.arn
 }
 
+output "queue_name" {
+  description = "Name of sqs_queue"
+  value       = local.name
+}
+
 output "sqs_queue_url" {
   description = "URL of sqs_queue"
   value       = aws_sqs_queue.sqs_queue.id
@@ -17,4 +22,9 @@ output "sqs_queue_deadletter_arn" {
 output "sqs_queue_deadletter_url" {
   description = "URL of sqs_queue_deadletter"
   value       = aws_sqs_queue.sqs_queue_deadletter.id
+}
+
+output "dlq_queue_name" {
+  description = "Name of sqs_queue"
+  value       = "${local.name}-deadletter"
 }

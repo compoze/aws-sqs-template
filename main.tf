@@ -6,7 +6,7 @@ terraform {
 }
 
 resource "aws_sqs_queue" "sqs_queue" {
-  name                      = "component-name-queue"
+  name                      = local.name
   delay_seconds             = 1
   max_message_size          = 2048
   message_retention_seconds = 86400
@@ -20,7 +20,7 @@ resource "aws_sqs_queue" "sqs_queue" {
 }
 
 resource "aws_sqs_queue" "sqs_queue_deadletter" {
-  name                      = "component-name-queue-deadletter"
+  name                      = "${local.name}-deadletter"
   delay_seconds             = 10
   max_message_size          = 2048
   message_retention_seconds = 86400
